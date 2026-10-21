@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState, type CSSProperties } from 'react';
+import ErfanChat from './ErfanChat';
 import OverviewPanel from './OverviewPanel';
 import OrbParticleCore from './OrbParticleCore';
 import { OrbRing, OrbStatusBar } from './OrbRing';
@@ -177,8 +178,9 @@ export default function ErfanWorld() {
         {selected && <AgentOverview agent={selected} onClose={close} />}
       </div>
       <OverviewPanel />
+      <ErfanChat />
       <div style={{ position: 'fixed', top: 112, left: 11, zIndex: 12, color: 'rgba(195,220,232,.35)', font: '8px var(--app-font-mono)', letterSpacing: '.12em', pointerEvents: 'none' }} data-testid="text-demo-disclaimer">
-        ERFAN · INTERFACE DEMO · NO AI BACKEND
+        ERFAN · GRAPH DEMO · CHAT VIA LLM7.IO
       </div>
       <a className="source-link" href="https://github.com/RubenM1990/APEX-UI" target="_blank" rel="noopener noreferrer" data-testid="link-source-credit">SOURCE REPOSITORY ↗</a>
     </main>

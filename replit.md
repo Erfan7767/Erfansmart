@@ -30,13 +30,14 @@ An interactive autonomous-agent interface with a reasoning graph, animated orb, 
 
 ## Architecture decisions
 
-- Erfan is a UI recreation, not a connected AI assistant; do not imply it includes a live model, voice features, or the separate Apex humanoid.
+- The chat is connected server-side to LLM7.io's anonymous `gpt-oss:20b` endpoint. Its free access and limits can change; never imply the graph or agent cards are connected tools, or claim voice features or the separate Apex humanoid.
+- Chat prompts are sent to LLM7.io, and recent chat history stays in the user's browser. Do not send secrets to the model or log prompt contents.
 - The source project is MIT-licensed, but Apex and Reznikov Engineering names/branding are excluded. Keep the upstream license and component credits with redistributed code, and use Erfan branding.
 - Weather uses Open-Meteo and browser geolocation; do not display fabricated live conditions.
 
 ## Product
 
-Erfan presents an interactive agent constellation around a particle orb. Users can cycle the orb state and open agent detail cards; the overview includes time and weather.
+Erfan presents an interactive agent constellation around a particle orb. Users can chat with the text model, cycle the illustrative orb state, and open agent detail cards; the overview includes time and weather.
 
 ## User preferences
 
