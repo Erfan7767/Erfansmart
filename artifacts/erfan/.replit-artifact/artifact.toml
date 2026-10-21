@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Erfan"
+description = "A branded recreation of the open-source APEX-UI animated autonomous-agent interface, with an interactive orb, reasoning graph, agent overview cards, status controls, and weather panel."
+version = "1.0.0"
+id = "artifacts/erfan"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22924
+
+[services.development]
+run = "pnpm --filter @workspace/erfan run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/erfan", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/erfan/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22924"
+BASE_PATH = "/"

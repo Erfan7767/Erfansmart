@@ -1,10 +1,11 @@
-# [Project name]
+# Erfan
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+An interactive autonomous-agent interface with a reasoning graph, animated orb, agent details, and live status overview.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- `pnpm --filter @workspace/erfan run dev` — run the Erfan web app
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
@@ -22,23 +23,28 @@ _Replace the heading above with the project's name, and this line with one sente
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/erfan` — Erfan web app
+- `artifacts/api-server` — shared API server
+- `lib/api-spec/openapi.yaml` — API contract
+- `lib/db/src/schema` — database schema
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Erfan is a UI recreation, not a connected AI assistant; do not imply it includes a live model, voice features, or the separate Apex humanoid.
+- The source project is MIT-licensed, but Apex and Reznikov Engineering names/branding are excluded. Keep the upstream license and component credits with redistributed code, and use Erfan branding.
+- Weather uses Open-Meteo and browser geolocation; do not display fabricated live conditions.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+Erfan presents an interactive agent constellation around a particle orb. Users can cycle the orb state and open agent detail cards; the overview includes time and weather.
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- The interface should be a complete Erfan-branded recreation of the referenced public APEX-UI project.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- Preserve the source license and community component credits when changing or redistributing the interface.
 
 ## Pointers
 
