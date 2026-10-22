@@ -30,8 +30,10 @@ An interactive autonomous-agent interface with a reasoning graph, animated orb, 
 
 ## Architecture decisions
 
-- The chat is connected server-side to LLM7.io's anonymous `gpt-oss:20b` endpoint. Its free access and limits can change; never imply the graph or agent cards are connected tools, or claim voice features or the separate Apex humanoid.
+- The chat is connected server-side to LLM7.io's anonymous `gpt-oss:20b` endpoint. Its free access and limits can change; do not describe the graph or agent cards as connected tools, imply full-duplex audio from the model, or claim the separate Apex humanoid.
+- The server enforces a shared in-memory cap of 20 chat requests per minute to protect the anonymous provider quota; this is process-wide, not per user.
 - Chat prompts are sent to LLM7.io, and recent chat history stays in the user's browser. Do not send secrets to the model or log prompt contents.
+- Voice uses browser speech recognition for live transcription and browser speech synthesis for spoken replies. The LLM endpoint is text-only, so this is turn-based voice, not full-duplex model audio; detect unsupported browsers and keep text chat available.
 - The source project is MIT-licensed, but Apex and Reznikov Engineering names/branding are excluded. Keep the upstream license and component credits with redistributed code, and use Erfan branding.
 - Weather uses Open-Meteo and browser geolocation; do not display fabricated live conditions.
 
